@@ -1,0 +1,18 @@
+# FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+# WORKDIR /app
+# COPY ./app /app
+# RUN pip install fastapi uvicorn
+# EXPOSE 8000
+
+# ENTRYPOINT ["uvicorn", "app:app --reload"]
+
+# CMD ["uvicorn", "app.app:app", "8000"]
+
+FROM python:3.8-slim
+
+COPY . /app
+WORKDIR /app
+
+RUN pip install -r requirements.txt
+
+CMD ["python", "predict_future_sales_1c_using_sequential.ipynb"]
